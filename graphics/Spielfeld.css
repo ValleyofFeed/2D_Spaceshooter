@@ -1,0 +1,126 @@
+/*Darstellung Hintergrund*/
+
+#main_wrapper {
+	background-color: #000529;
+	position: relative;
+	height: 600px;
+	width: 600px;
+	overflow: hidden;
+	display: block;
+	margin: 0;	
+}
+
+#main_wrapper .background {
+	background-repeat: repeat;
+	background-size: 254px 256px;
+	background-position: 0px 0px;
+	width: 100%;
+	height: 100%;
+	
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+#main_wrapper #background1.background {
+	background-image: url( './images/img/starBackground2.png');
+	animation: BACKGROUND 1s linear 0s infinite;
+	opacity: .4;
+}
+#main_wrapper #background2.background{
+	background-image: url('./images/img/starBackground3.png');
+	animation: BACKGROUND 25s linear 0s infinite;
+	opacity: .5;
+}
+#main_wrapper #background3.background{
+	background-image: url( './images/img/starBackground4.png');
+	animation: BACKGROUND 15s linear 0s infinite;
+	opacity: .6;
+}
+@keyframes BACKGROUND{
+    from{
+        background-position-y: 0px;
+    }to{
+        background-position-y: 256px;
+    }
+}
+
+/*Darstellung des Schiffes*/
+
+#spaceship {
+	background-image: url( './images/img/player.png');
+	background-repeat: no-repeat;
+	background-size: 148.5px 37.5px;
+	background-position: -49.5px 0px;
+	
+	width: 49.5px;
+	height: 37.5px; 
+
+    
+	position: absolute;
+	left: 350px;
+	top: 480px;
+}
+
+#spaceship[data-direction="left"]{
+	background-position-x: 0px;
+}
+
+#spaceship[data-direction="right"] {
+	background-position-x: -99px;
+
+/* Darstellung des Schusses*/
+
+}
+ .bullet {
+    background-size: 4.5px 16.5px;
+    background-repeat: no-repeat;
+    
+    width: 4.5px;
+    height: 16.5px;
+    
+    position: absolute;
+    left: -100px;
+    top: -100px;
+} 
+
+.bullet {
+    background-image: url( './images/img/laserGreen.png' );
+}
+
+.bullet_shot {
+    background-size: 28px 27px;
+    background-repeat: no-repeat;
+    
+    width: 28px;
+    height: 27px;
+    
+    position: absolute;
+    left: -100px;
+    top: -100px;
+    
+    opacity: 0;
+    animation: FADEOUT .1s linear 0s 1, ROTATE 1s linear 0s 1;
+}
+.bullet_shot {
+    background-image: url( './images/img/laserGreenShot.png' );
+}
+@keyframes FADEOUT {
+    from {
+        opacity: 1;
+    }
+    to { 
+        opacity: 0;
+    }
+}
+@keyframes ROTATE {
+    from {
+        transform: rotate( 0deg );
+    }
+    to { 
+        transform: rotate( 360deg );
+    }
+} 
+[data-destroyed="true"] {
+    display: none;
+}
+
